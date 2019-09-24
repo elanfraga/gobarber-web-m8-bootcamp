@@ -1,11 +1,40 @@
 import React from 'react';
-
+import { MdChevronLeft, MdChevronRight } from 'react-icons/md';
 import api from '~/services/api';
 
-// import { Container } from './styles';
+import { Container, Time } from './styles';
 
 export default function Dashborad() {
-  api.get('appointments');
+  return (
+    <Container>
+      <header>
+        <button type="button">
+          <MdChevronLeft size={36} color="#fff" />
+        </button>
+        <strong>31 de maio</strong>
+        <button type="button">
+          <MdChevronRight size={36} color="#fff" />
+        </button>
+      </header>
 
-  return <h1>dashboard</h1>;
+      <ul>
+        <Time past>
+          <strong>08:00</strong>
+          <span>Elan Fraga</span>
+        </Time>
+        <Time available>
+          <strong>09:00</strong>
+          <span>E aberto</span>
+        </Time>
+        <Time>
+          <strong>10:00</strong>
+          <span>Elan Fraga</span>
+        </Time>
+        <Time>
+          <strong>11:00</strong>
+          <span>Elan Fraga</span>
+        </Time>
+      </ul>
+    </Container>
+  );
 }
